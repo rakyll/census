@@ -35,6 +35,14 @@ func (s StringKey) Upsert(v string) Modifier {
 	panic("not implemented")
 }
 
+func Decode(bytes []byte) (*TagSet, error) {
+	panic("not implemented")
+}
+
+func Encode(ts *TagSet) []byte {
+	panic("not implemented")
+}
+
 type Tag struct {
 	Key   Key
 	Value []byte
