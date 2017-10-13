@@ -10,7 +10,7 @@ import (
 
 func ExampleClient() {
 	ch := make(chan *ocstats.ViewData, 256)
-	server, err := grpc.Dial("server",
+	server, err := grpc.Dial("server:7656",
 		grpc.WithStatsHandler(ocgrpc.NewClientStatsHandler(ch)),
 		grpc.WithUnaryInterceptor(ocgrpc.NewTracingUnaryClientInterceptor()),
 		grpc.WithStreamInterceptor(ocgrpc.NewTracingStreamClientInterceptor()),
