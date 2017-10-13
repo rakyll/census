@@ -11,9 +11,9 @@ import (
 func ExampleClient() {
 	ch := make(chan *ocstats.ViewData, 256)
 	conn, err := grpc.Dial("server:7656",
-		grpc.WithStatsHandler(ocgrpc.NewClientStatsHandler(ch)),
-		grpc.WithUnaryInterceptor(ocgrpc.NewTracingUnaryClientInterceptor()),
-		grpc.WithStreamInterceptor(ocgrpc.NewTracingStreamClientInterceptor()),
+		grpc.WithStatsHandler(ocgrpc.ClientStatsHandler(ch)),
+		grpc.WithUnaryInterceptor(ocgrpc.TracingUnaryClientInterceptor()),
+		grpc.WithStreamInterceptor(ocgrpc.TracingStreamClientInterceptor()),
 	)
 	if err != nil {
 		log.Fatal(err)
